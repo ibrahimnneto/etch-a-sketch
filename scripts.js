@@ -3,6 +3,14 @@ const btnSize = document.createElement('button');
 const buttonsContainer = document.querySelector('.buttons');
 let color = 'black';
 
+function colorSquare() {
+  if ((color === 'random')) {
+    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  } else {
+    this.style.backgroundColor = color;
+  }
+}
+
 function createRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -10,14 +18,6 @@ function createRows(rows, cols) {
     const cell = document.createElement('div');
     cell.addEventListener('mouseover', colorSquare);
     container.appendChild(cell).className = 'grid-item';
-  }
-}
-
-function colorSquare() {
-  if ((color === 'random')) {
-    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-  } else {
-    this.style.backgroundColor = color;
   }
 }
 
@@ -50,5 +50,5 @@ function resize() {
   });
   buttonsContainer.appendChild(btnSize).classList.add('btn');
 }
-
+createRows(16, 16);
 resize();
